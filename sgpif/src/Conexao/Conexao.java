@@ -11,7 +11,7 @@ public class Conexao {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/sgpif";
     private static final String USER = "root";
-    private static final String PASSWORD = "TEST";
+    private static final String PASSWORD = "PasswordHere"; //Coloque a senha do seu servidor local aqui.
     
     public static Connection getConnection(){
         Connection con = null;
