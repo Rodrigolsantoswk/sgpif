@@ -14,7 +14,7 @@ import classes.categoria;
 
 public class coordenadorDAO implements InterfaceCoordenadorDAO {
 
-    private Connection con = null;
+    Connection con;
 
     @Override
     public List<coordenador> selecionarCoordenadores() {
@@ -25,10 +25,10 @@ public class coordenadorDAO implements InterfaceCoordenadorDAO {
                 .append("left join categoria ca")
                 .append("on c.idCategoria = ca.idCategoria");
 
-        PreparedStatement stmt;
-        ResultSet rs;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         List<coordenador> cord = new ArrayList<>();
-
+        
         try {
             con = Conexao.getConnection();
             stmt = con.prepareStatement(SqlBuilder.toString());
@@ -59,7 +59,7 @@ public class coordenadorDAO implements InterfaceCoordenadorDAO {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-
+            Conexao.closeConnection(con, stmt, rs);
         }
         return cord;
     }
