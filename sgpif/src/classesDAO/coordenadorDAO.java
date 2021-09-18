@@ -21,11 +21,11 @@ public class coordenadorDAO implements InterfaceCoordenadorDAO {
     @Override
     public List<coordenador> selecionarCoordenadores() {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("select SIAPE, nome, endereco, a.idArea, a.nomeArea, ca.idCategoria, ca.nomeCategoria from coordenador c")
-                .append("left join area a")
-                .append("on c.idArea = a.idArea")
-                .append("left join categoria ca")
-                .append("on c.idCategoria = ca.idCategoria");
+        SqlBuilder.append("select SIAPE, nome, endereco, a.idArea, a.nomeArea, ca.idCategoria, ca.nomeCategoria from coordenador c ")
+                .append("left join area a ")
+                .append("on c.idArea = a.idArea ")
+                .append("left join categoria ca ")
+                .append("on c.idCategoria = ca.idCategoria ");
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -79,45 +79,46 @@ public class coordenadorDAO implements InterfaceCoordenadorDAO {
             return true;
         } catch (SQLException ex) {
            Logger.getLogger(coordenadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+           return false;
         } finally {
            Conexao.closeConnection(con, stmt);
         }
-        return false;
         
     }
 
     @Override
-    public boolean inserirCoordenador(int SIAPE, String nome, String endereco, int idArea, int idCategoria) {
+    public boolean inserirCoordenador(coordenador Cord) {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("INSERT INTO coordenador")
-                  .append("(SIAPE, nome , endereco, idArea, idCategoria)")
-                  .append("VALUES")
+        SqlBuilder.append("INSERT INTO coordenador ")
+                  .append("(SIAPE, nome , endereco, idArea, idCategoria) ")
+                  .append("VALUES ")
                   .append("( ?, ?, ?, ?, ?);");
         
         con = Conexao.getConnection();
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, SIAPE);
-            stmt.setString(2, nome);
-            stmt.setString(3, endereco);
-            stmt.setInt(4, idArea);
-            stmt.setInt(5, idCategoria);
+            stmt.setInt(1, Cord.SIAPE);
+            stmt.setString(2, Cord.nome);
+            stmt.setString(3, Cord.endereco);
+            stmt.setInt(4, Cord.Area.getIdArea());
+            stmt.setInt(5, Cord.Categoria.getIdCategoria());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(coordenadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } finally {
             Conexao.closeConnection(con, stmt);
         }
-        return false;
+        
     }
 
     @Override
     public boolean alterarEndereco(int idCoordenador, String endereco) {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("UPDATE coordenador")
-                  .append("SET endereco = ?")
+        SqlBuilder.append("UPDATE coordenador" )
+                  .append("SET endereco = ? ")
                   .append("WHERE idCoordenador = ?");
         con = Conexao.getConnection();
         PreparedStatement stmt = null;
@@ -130,10 +131,11 @@ public class coordenadorDAO implements InterfaceCoordenadorDAO {
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(coordenadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } finally {
             Conexao.closeConnection(con, stmt);
         }
-        return false;
+        
     }
     
 }

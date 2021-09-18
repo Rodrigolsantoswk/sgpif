@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package classes;
 
-/**
- *
- * @author uie30005
- */
 public class coordenador {
-    int SIAPE;
-    String nome;
-    String endereco;
-    area Area;
-    categoria Categoria;
+    public int SIAPE;
+    public String nome;
+    public String endereco;
+    public area Area;
+    public categoria Categoria;
     
     public void setSIAPE(int SIAPE){
         this.SIAPE = SIAPE;
@@ -36,6 +27,24 @@ public class coordenador {
         this.Categoria = Categoria;
     }
     
+    public int getSiape(){
+        return SIAPE;
+    }
     
+    public String getNome(){
+        return nome;
+    }
+    
+    public String getEndereco(){
+        return endereco;
+    }
+    
+    public area getArea(){
+        return Area;
+    }
+    
+    public categoria getCategoria(){
+        return Categoria;
+    }
     
 }

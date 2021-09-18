@@ -1,29 +1,29 @@
 package classesDAO;
 
-import Interfaces.InterfaceAreaDAO;
-import classes.area;
+import Conexao.Conexao;
+import Interfaces.InterfaceCategoriaDAO;
+import classes.categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import Conexao.Conexao;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class areaDAO implements InterfaceAreaDAO{
+public class categoriaDAO implements InterfaceCategoriaDAO {
     
     Connection con;
     
     @Override
-    public List<area> selecionarAreas() {
+    public List<categoria> selecionarCategorias() {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("select * from area");
+        SqlBuilder.append("select * from categoria");
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<area> areas = new ArrayList<>();
+        List<categoria> categs = new ArrayList<>();
         
         try {
             con = Conexao.getConnection();
@@ -31,37 +31,37 @@ public class areaDAO implements InterfaceAreaDAO{
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                area a = new area();
+                categoria c = new categoria();
 
-                a.setIdArea(rs.getInt("idArea"));
-                a.setNomeArea(rs.getString("nomeArea"));
+                c.setIdCategoria(rs.getInt("idCategoria"));
+                c.setNomeCategoria(rs.getString("nomeCategoria"));
 
-                areas.add(a);
+                categs.add(c);
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(areaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(categoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             Conexao.closeConnection(con, stmt, rs);
         }
-        return areas;
+        return categs;
     }
 
     @Override
-    public boolean deletarArea(int idArea) {
-        String sql = "delete from area where idArea = ?";
+    public boolean deletarCategoria(int idCategoria) {
+        String sql = "delete from categoria where idCategoria = ?";
         
         con= Conexao.getConnection();
         PreparedStatement stmt = null;
         
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setInt(1, idArea);
+            stmt.setInt(1, idCategoria);
             stmt.executeUpdate();
             
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(areaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(categoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } finally {
             Conexao.closeConnection(con, stmt);
@@ -69,10 +69,10 @@ public class areaDAO implements InterfaceAreaDAO{
     }
 
     @Override
-    public boolean inserirArea(area Area) {
+    public boolean inserirCategoria(categoria Categoria) {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("INSERT INTO area ")
-                  .append("(nomeArea) ")
+        SqlBuilder.append("INSERT INTO categoria ")
+                  .append("(nomeCategoria) ")
                   .append("VALUES ")
                   .append("(?);");
         
@@ -81,40 +81,38 @@ public class areaDAO implements InterfaceAreaDAO{
         
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setString(1, Area.nomeArea);
+            stmt.setString(1, Categoria.getNomeCategoria());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(areaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(categoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } finally {
             Conexao.closeConnection(con, stmt);
         }
-        
     }
 
     @Override
-    public boolean alterarNomeArea(area Area) {
+    public boolean alterarNomeCategoria(categoria Categoria) {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("UPDATE area" )
-                  .append("SET nomeArea = ? ")
-                  .append("WHERE idArea = ?");
+        SqlBuilder.append("UPDATE categoria" )
+                  .append("SET nomeCategoria = ? ")
+                  .append("WHERE idCategoria = ?");
         con = Conexao.getConnection();
         PreparedStatement stmt = null;
         
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setString(1, Area.nomeArea);
-            stmt.setInt(2, Area.idArea);
+            stmt.setString(1, Categoria.getNomeCategoria());
+            stmt.setInt(2, Categoria.getIdCategoria());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(areaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(categoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } finally {
             Conexao.closeConnection(con, stmt);
         }
-        
     }
-    
+     
 }
