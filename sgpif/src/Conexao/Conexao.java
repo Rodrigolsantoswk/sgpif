@@ -6,12 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class Conexao {
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/sgpif";
     private static final String USER = "root";
-    private static final String PASSWORD = "TEST";
+    private static final String PASSWORD = "";
     
     public static Connection getConnection(){
         Connection con = null;
@@ -28,7 +27,7 @@ public class Conexao {
         if(con != null){
             try{
                 con.close();
-            }catch(Exception e){
+            }catch(SQLException e){
                 System.err.println(e);
             }
         }
@@ -56,7 +55,6 @@ public class Conexao {
             }
         }
         closeConnection(con, stmt);
-    }
-    
+    } 
     
 }

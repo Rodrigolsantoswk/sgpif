@@ -11,6 +11,8 @@ import Interfaces.InterfaceCoordenadorDAO;
 import classes.coordenador;
 import classes.area;
 import classes.categoria;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class coordenadorDAO implements InterfaceCoordenadorDAO {
 
@@ -64,4 +66,74 @@ public class coordenadorDAO implements InterfaceCoordenadorDAO {
         return cord;
     }
 
+    @Override
+    public boolean deletarCoordenador(int idCoordenador) {
+        String query = "delete from coordenador where idCoordenador = ?";
+       
+        con = Conexao.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement(query);
+            stmt.setInt(1, idCoordenador);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+           Logger.getLogger(coordenadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+           Conexao.closeConnection(con, stmt);
+        }
+        return false;
+        
+    }
+
+    @Override
+    public boolean inserirCoordenador(int SIAPE, String nome, String endereco, int idArea, int idCategoria) {
+        StringBuilder SqlBuilder = new StringBuilder();
+        SqlBuilder.append("INSERT INTO coordenador")
+                  .append("(SIAPE, nome , endereco, idArea, idCategoria)")
+                  .append("VALUES")
+                  .append("( ?, ?, ?, ?, ?);");
+        
+        con = Conexao.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement(SqlBuilder.toString());
+            stmt.setInt(1, SIAPE);
+            stmt.setString(2, nome);
+            stmt.setString(3, endereco);
+            stmt.setInt(4, idArea);
+            stmt.setInt(5, idCategoria);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(coordenadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Conexao.closeConnection(con, stmt);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean alterarEndereco(int idCoordenador, String endereco) {
+        StringBuilder SqlBuilder = new StringBuilder();
+        SqlBuilder.append("UPDATE coordenador")
+                  .append("SET endereco = ?")
+                  .append("WHERE idCoordenador = ?");
+        con = Conexao.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt= con.prepareStatement(SqlBuilder.toString());
+            stmt.setString(1, endereco);
+            stmt.setInt(2, idCoordenador);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(coordenadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Conexao.closeConnection(con, stmt);
+        }
+        return false;
+    }
+    
 }

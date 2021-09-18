@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sgpif;
 
-/**
- *
- * @author uie30005
- */
-public class Sgpif {
+import Conexao.Conexao;
+import java.sql.Connection;
 
-    /**
-     * @param args the command line arguments
-     */
+public class Sgpif {
+    
     public static void main(String[] args) {
-    
+        Conexao c = new Conexao();
+        
+        Connection conexao=c.getConnection();
+        
+        
+        
     }
-    
 }
