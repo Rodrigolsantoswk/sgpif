@@ -1,11 +1,11 @@
 package Interfaces;
 
 import java.util.List;
-import classes.area;
+import classes.Area;
 
 public interface InterfaceAreaDAO  {
-    public List<classes.area> selecionarAreas();
+    public List<classes.Area> selecionarAreas();
     public boolean deletarArea(int idArea);
-    public boolean inserirArea(area Area);
-    public boolean alterarNomeArea(area Area);
+    public boolean inserirArea(Area Area);
+    public boolean alterarNomeArea(Area Area);
 }

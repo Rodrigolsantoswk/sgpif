@@ -1,11 +1,11 @@
 package Interfaces;
 
 import java.util.List;
-import classes.coordenador;
+import classes.Coordenador;
 
 public interface InterfaceCoordenadorDAO {
-    public List<classes.coordenador> selecionarCoordenadores();
+    public List<classes.Coordenador> selecionarCoordenadores();
     public boolean deletarCoordenador(int idCoordenador);
-    public boolean inserirCoordenador(coordenador Cord);
-    public boolean alterarEndereco(int idCoordenador, String endereco);
+    public boolean inserirCoordenador(Coordenador Cord);
+    public boolean alterarEndereco(Coordenador coord);
 }

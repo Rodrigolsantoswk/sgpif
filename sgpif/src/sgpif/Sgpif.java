@@ -9,8 +9,5 @@ public class Sgpif {
         Conexao c = new Conexao();
         
         Connection conexao=c.getConnection();
-        
-        
-        
     }
 }
