@@ -107,7 +107,7 @@ public class BolsistaDAO implements InterfaceBolsistaDAO {
             stmt.setLong(1, bolsista.getMatricula());
             stmt.setString(2, bolsista.getNomeBolsista());
             stmt.setString(3, bolsista.getEndereco());
-            stmt.setInt(4, bolsista.curso.getIdCurso());
+            stmt.setInt(4, bolsista.getCurso().getIdCurso());
             stmt.setInt(5, bolsista.getCodBanco());
             stmt.setInt(6, bolsista.getCodAgencia());
             stmt.setString(7, bolsista.getNumConta());
@@ -132,7 +132,7 @@ public class BolsistaDAO implements InterfaceBolsistaDAO {
 
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, bolsista.curso.getIdCurso());
+            stmt.setInt(1, bolsista.getCurso().getIdCurso());
             stmt.setInt(2, bolsista.getIdBolsista());
             stmt.executeUpdate();
             return true;

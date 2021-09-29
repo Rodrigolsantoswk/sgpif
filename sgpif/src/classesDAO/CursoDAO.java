@@ -94,8 +94,8 @@ public class CursoDAO implements InterfaceCursoDAO {
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
             stmt.setString(1, curso.getNomeCurso());
-            stmt.setInt(2, curso.area.getIdArea());
-            stmt.setInt(3, curso.nivelCurso.getIdNivel());
+            stmt.setInt(2, curso.getArea().getIdArea());
+            stmt.setInt(3, curso.getNivelCurso().getIdNivel());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {

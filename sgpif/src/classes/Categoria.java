@@ -1,8 +1,8 @@
 package classes;
 
 public class Categoria {
-    public int idCategoria;
-    public String nomeCategoria;
+    private int idCategoria;
+    private String nomeCategoria;
     
     public void setIdCategoria(int idCategoria){
         this.idCategoria = idCategoria;

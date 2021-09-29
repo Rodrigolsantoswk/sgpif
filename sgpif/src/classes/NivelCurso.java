@@ -1,8 +1,8 @@
 package classes;
 
 public class NivelCurso {
-    public int idNivel;
-    public String nomeNivel;
+    private int idNivel;
+    private String nomeNivel;
     
     public void setIdNivelCurso(int idNivel){
         this.idNivel = idNivel;

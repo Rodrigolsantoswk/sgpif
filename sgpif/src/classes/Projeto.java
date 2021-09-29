@@ -3,14 +3,14 @@ package classes;
 public class Projeto {
     private int idProjeto;
     private String nomeProjeto;
-    public AgenciaFomento agFomento;
+    private AgenciaFomento agFomento;
     private String dataInicial;
     private String dataFinal;
-    public Situacao situacao;
+    private Situacao situacao;
     private String motivoCancelamento;
-    public Edital edital;
-    public GrupoPesquisa grupoPesquisa;
-    public Coordenador coordenador;
+    private Edital edital;
+    private GrupoPesquisa grupoPesquisa;
+    private Coordenador coordenador;
     private String dataRelatorio1;
     private String dataRelatorio2;
     

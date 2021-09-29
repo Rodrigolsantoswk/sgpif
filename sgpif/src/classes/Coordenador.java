@@ -1,11 +1,11 @@
 package classes;
 
 public class Coordenador {
-    public int SIAPE;
-    public String nome;
-    public String endereco;
-    public Area area;
-    public Categoria Categoria;
+    private int SIAPE;
+    private String nome;
+    private String endereco;
+    private Area area;
+    private Categoria Categoria;
     
     public void setSIAPE(int SIAPE){
         this.SIAPE = SIAPE;

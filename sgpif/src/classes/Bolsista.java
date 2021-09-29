@@ -5,7 +5,7 @@ public class Bolsista {
     private long matricula;
     private String nomeBolsista;
     private String endereco;
-    public Curso curso;
+    private Curso curso;
     private int codBanco;
     private int codAgencia;
     private String numConta;

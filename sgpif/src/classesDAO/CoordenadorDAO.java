@@ -98,11 +98,11 @@ public class CoordenadorDAO implements InterfaceCoordenadorDAO {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, Cord.SIAPE);
-            stmt.setString(2, Cord.nome);
-            stmt.setString(3, Cord.endereco);
-            stmt.setInt(4, Cord.area.getIdArea());
-            stmt.setInt(5, Cord.Categoria.getIdCategoria());
+            stmt.setInt(1, Cord.getSiape());
+            stmt.setString(2, Cord.getNome());
+            stmt.setString(3, Cord.getEndereco());
+            stmt.setInt(4, Cord.getArea().getIdArea());
+            stmt.setInt(5, Cord.getCategoria().getIdCategoria());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {

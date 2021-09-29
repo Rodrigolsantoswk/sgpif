@@ -1,8 +1,8 @@
 package classes;
 
 public class Statusbp {
-    public int idStatusbp;
-    public String nomeStatus;
+    private int idStatusbp;
+    private String nomeStatus;
     
     public void setIdStatusbp(int idStatusbp){
         this.idStatusbp = idStatusbp;

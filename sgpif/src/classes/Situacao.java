@@ -1,8 +1,8 @@
 package classes;
 
 public class Situacao {
-    public int idSituacao;
-    public String nomeSituacao;
+    private int idSituacao;
+    private String nomeSituacao;
     
     public void setIdSituacao(int idSituacao){
         this.idSituacao = idSituacao;

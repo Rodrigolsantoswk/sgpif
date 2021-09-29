@@ -1,9 +1,9 @@
 package classes;
 
 public class Modalidade {
-    public int idModalidade;
-    public String nomeModalidade;
-    public NivelCurso nivelCurso;
+    private int idModalidade;
+    private String nomeModalidade;
+    private NivelCurso nivelCurso;
     
     public void setIdModalidade(int idModalidade){
         this.idModalidade =  idModalidade;

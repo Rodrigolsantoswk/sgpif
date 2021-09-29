@@ -2,9 +2,9 @@ package classes;
 
 public class BolsistaProjeto {
     private int idBolsistaProjeto;
-    public Projeto projeto;
-    public Bolsista bolsista;
-    public Statusbp statusbp;
+    private Projeto projeto;
+    private Bolsista bolsista;
+    private  Statusbp statusbp;
     private String dataInicio;
     private String dataFim;
     

@@ -140,14 +140,14 @@ public class ProjetoDAO implements InterfaceProjetoDAO{
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
             stmt.setString(1, projeto.getNomeProjeto());
-            stmt.setInt(2, projeto.agFomento.getIdAgFomento());
+            stmt.setInt(2, projeto.getAgFomento().getIdAgFomento());
             stmt.setString(3, projeto.getDataInicial());
             stmt.setString(4, projeto.getDataFinal());
-            stmt.setInt(5, projeto.situacao.getIdSituacao());
+            stmt.setInt(5, projeto.getSituacao().getIdSituacao());
             stmt.setString(6, projeto.getMotivoCancelamento());
-            stmt.setInt(7, projeto.edital.getIdEdital());
-            stmt.setInt(8, projeto.grupoPesquisa.getIdGrupoPesquisa());
-            stmt.setInt(9, projeto.coordenador.getSiape());
+            stmt.setInt(7, projeto.getEdital().getIdEdital());
+            stmt.setInt(8, projeto.getGrupoPesquisa().getIdGrupoPesquisa());
+            stmt.setInt(9, projeto.getCoordenador().getSiape());
             stmt.setString(10, projeto.getDataRelatorio1());
             stmt.setString(11, projeto.getDataRelatorio2());
             stmt.executeUpdate();
@@ -194,7 +194,7 @@ public class ProjetoDAO implements InterfaceProjetoDAO{
 
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, projeto.situacao.getIdSituacao());
+            stmt.setInt(1, projeto.getSituacao().getIdSituacao());
             stmt.setInt(2, projeto.getIdProjeto());
             stmt.executeUpdate();
             return true;
@@ -286,7 +286,7 @@ public class ProjetoDAO implements InterfaceProjetoDAO{
 
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, projeto.coordenador.getSiape());
+            stmt.setInt(1, projeto.getCoordenador().getSiape());
             stmt.setInt(2, projeto.getIdProjeto());
             stmt.executeUpdate();
             return true;
@@ -332,7 +332,7 @@ public class ProjetoDAO implements InterfaceProjetoDAO{
 
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, projeto.agFomento.getIdAgFomento());
+            stmt.setInt(1, projeto.getAgFomento().getIdAgFomento());
             stmt.setInt(2, projeto.getIdProjeto());
             stmt.executeUpdate();
             return true;

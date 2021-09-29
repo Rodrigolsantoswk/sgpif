@@ -90,7 +90,7 @@ public class ModalidadeDAO implements InterfaceModalidadeDAO{
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
             stmt.setString(1, modalidade.getNomeModalidade());
-            stmt.setInt(2, modalidade.nivelCurso.getIdNivel());
+            stmt.setInt(2, modalidade.getNivelCurso().getIdNivel());
             stmt.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -135,7 +135,7 @@ public class ModalidadeDAO implements InterfaceModalidadeDAO{
         
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, modalidade.nivelCurso.getIdNivel());
+            stmt.setInt(1, modalidade.getNivelCurso().getIdNivel());
             stmt.setInt(2, modalidade.getIdModalidade());
             stmt.executeUpdate();
             return true;

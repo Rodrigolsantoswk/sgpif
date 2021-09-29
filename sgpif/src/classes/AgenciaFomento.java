@@ -1,8 +1,8 @@
 package classes;
 
 public class AgenciaFomento {
-    public int idAgFomento;
-    public String nomeAgFomento;
+    private int idAgFomento;
+    private String nomeAgFomento;
     
     public void setIdAgFomento(int idAgFomento){
         this.idAgFomento = idAgFomento;

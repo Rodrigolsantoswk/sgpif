@@ -1,10 +1,10 @@
 package classes;
 
 public class Edital {
-    public int idEdital;
-    public String nomeEdital;
-    public int anoLetivo; //4 digitos
-    public Modalidade modalidade;
+    private int idEdital;
+    private String nomeEdital;
+    private int anoLetivo; //4 digitos
+    private Modalidade modalidade;
     
     public void setIdEdital(int idEdital){
         this.idEdital = idEdital;

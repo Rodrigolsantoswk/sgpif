@@ -93,7 +93,7 @@ public class EditalDAO implements InterfaceEditalDAO{
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
             stmt.setString(1, edital.getNomeEdital());
-            stmt.setInt(2, edital.modalidade.getIdModalidade());
+            stmt.setInt(2, edital.getModalidade().getIdModalidade());
             stmt.setInt(3, edital.getAnoLetivo());
             stmt.executeUpdate();
             return true;
@@ -139,7 +139,7 @@ public class EditalDAO implements InterfaceEditalDAO{
 
         try {
             stmt = con.prepareStatement(SqlBuilder.toString());
-            stmt.setInt(1, edital.modalidade.getIdModalidade());
+            stmt.setInt(1, edital.getModalidade().getIdModalidade());
             stmt.setInt(2, edital.getIdEdital());
             stmt.executeUpdate();
             return true;

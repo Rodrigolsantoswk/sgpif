@@ -1,10 +1,10 @@
 package classes;
 
 public class Curso {
-    public int idCurso;
-    public String nomeCurso;
-    public Area area;
-    public NivelCurso nivelCurso;
+    private int idCurso;
+    private String nomeCurso;
+    private Area area;
+    private NivelCurso nivelCurso;
     
     public void setIdCurso(int idCurso){
         this.idCurso = idCurso;

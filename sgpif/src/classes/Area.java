@@ -1,8 +1,8 @@
 package classes;
 
 public class Area {
-    public int idArea;
-    public String nomeArea;
+    private int idArea;
+    private String nomeArea;
     
     public void setIdArea(int idArea){
         this.idArea = idArea;
