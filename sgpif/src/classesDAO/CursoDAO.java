@@ -22,8 +22,8 @@ public class CursoDAO implements InterfaceCursoDAO {
     public List<Curso> selecionarCursos() {
         StringBuilder SqlBuilder = new StringBuilder();
         SqlBuilder.append("select * from curso ")
-                .append("inner join nivelcurso ")
-                .append("inner join area ");
+                .append("inner join nivelcurso ON c.idNivelCurso = nc.idNivel ")
+                .append("inner join area ON c.idArea = a.idArea; ");
 
         PreparedStatement stmt = null;
         ResultSet rs = null;

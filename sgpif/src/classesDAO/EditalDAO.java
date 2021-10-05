@@ -21,9 +21,11 @@ public class EditalDAO implements InterfaceEditalDAO{
     @Override
     public List<Edital> selecionarEdital() {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("select * from Edital ")
-                .append("inner join modalidade ")
-                .append("inner join nivelcurso; ");
+        SqlBuilder.append("SELECT * FROM Edital e ")
+                .append("INNER JOIN modalidade m ")
+                .append("ON e.idModalidade = m.idModalidade ")
+                .append("INNER JOIN nivelcurso nc ")
+                .append("ON m.idNivelCurso = nc.idNivel; ");
 
         PreparedStatement stmt = null;
         ResultSet rs = null;

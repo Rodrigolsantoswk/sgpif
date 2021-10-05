@@ -19,8 +19,8 @@ public class ModalidadeDAO implements InterfaceModalidadeDAO{
     @Override
     public List<Modalidade> selecionarModalidade() {
         StringBuilder SqlBuilder = new StringBuilder();
-        SqlBuilder.append("select * from curso ")
-                .append("inner join nivelcurso ");
+        SqlBuilder.append("SELECT * FROM modalidade m ")
+                .append("INNER JOIN nivelcurso nc ON m.idNivelCurso = nc.idNivel;");
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
