@@ -33,12 +33,12 @@ public class Sgpif {
         
         InterfaceAreaDAO ad = new AreaDAO();
         
-        Area a = new Area();
-        a.setIdArea(0);
-        a.setNomeArea("area 4");
-
-        ad.inserirArea(a);
-        
+//        Area a = new Area();
+//        a.setIdArea(0);
+//        a.setNomeArea("area 4");
+//
+//        ad.inserirArea(a);
+//        
         List<Area> list2 = new ArrayList<>();
         
         list2 = ad.selecionarAreas();

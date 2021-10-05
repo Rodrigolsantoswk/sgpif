@@ -133,7 +133,7 @@ public class ProjetoDAO implements InterfaceProjetoDAO{
         SqlBuilder.append("INSERT INTO projeto ")
                 .append("insert into projeto(nomeProjeto, idAgFomento, dataInicial, dataFinal, idSituacao, motivoCancelamento, idEdital, idGrupoPesquisa, siapeCoordenador, dataRelatorio1, dataRelatorio2) ")
                 .append("VALUES ")
-                .append("(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ;");
+                .append("(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 
         con = Conexao.getConnection();
         PreparedStatement stmt = null;

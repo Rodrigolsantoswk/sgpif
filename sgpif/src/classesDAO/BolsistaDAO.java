@@ -27,7 +27,7 @@ public class BolsistaDAO implements InterfaceBolsistaDAO {
                 .append(", c.idCurso, c.nomeCurso, a.idArea, a.nomeArea, nc.idNivel, nc.nomeNivel ")
                 .append("from bolsista b ")
                 .append("inner join curso c on b.idCurso = c.idCurso ")
-                .append("inner join area a a.idArea = c.idArea ")
+                .append("inner join area a ON a.idArea = c.idArea ")
                 .append("inner join nivelcurso nc on nc.idNivel = c.idNivelCurso; ");
 
         PreparedStatement stmt = null;

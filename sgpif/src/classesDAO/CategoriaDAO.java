@@ -97,7 +97,7 @@ public class CategoriaDAO implements InterfaceCategoriaDAO {
         StringBuilder SqlBuilder = new StringBuilder();
         SqlBuilder.append("UPDATE categoria" )
                   .append("SET nomeCategoria = ? ")
-                  .append("WHERE idCategoria = ?");
+                  .append("WHERE idCategoria = ?;");
         con = Conexao.getConnection();
         PreparedStatement stmt = null;
         
